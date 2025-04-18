@@ -139,13 +139,15 @@ int main(){
     //bank.addAccount("Satou");    
     //bank.addBalance("Tanaka",100);
     //bank.subBalance("Tanaka",10);
-    bank.readFile();
+
    
     cout << "--------------------" << endl; 
     while(1){
         string command ="";
         string name ="";
         int value = 0;
+
+        bank.readFile();    
        
         cout << "コマンド：";        
         cin >> command;
@@ -158,8 +160,7 @@ int main(){
         else if(command == "delAccount"){
             bank.delAccount(name);
         }    
-        else if(command == "chkAccount"){
-            bank.readFile();     
+        else if(command == "chkAccount"){     
             bank.chkAccount(name);
         }                
         else if(command == "addBalance"){
