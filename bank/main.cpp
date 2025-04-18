@@ -110,15 +110,13 @@ void Bank::readFile(){
 
 
     for(i=0;person_num > i;i++){        
-        getline(rf1,buffer);
-        if(buffer==""){
-            rf1.close();
-        }
-        else{
-            name[i]= buffer ;  
-            getline(rf1,buffer);    
-            balance[i] = stoi(buffer) ;
-        }
+        
+        if(!getline(rf1,buffer))break;
+        name[i]= buffer ;
+        
+        if(!getline(rf1,buffer))break;
+        balance[i] = stoi(buffer) ;
+        
     } 
     rf1.close();
     
@@ -153,7 +151,8 @@ int main(){
         cin >> command;
         if(command == "exit"){break;}        
         cout << "名前：";
-        cin >> name;        
+        cin >> name;       
+         
         if(command == "addAccount"){
             bank.addAccount(name);
         }
